@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  http = inject(HttpClient);
+  // http = inject(HttpClient);
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
     // if(isPlatformBrowser(this.platformId))
     //   // localStorage.setItem('app', 'test');
