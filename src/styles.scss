@@ -4,6 +4,7 @@
 @tailwind utilities;
 @import "./variable.scss";
 @import "./assets/fonts/Roboto/Roboto.font.scss";
+@import "./assets/icons/fontawesome-free-6.6.0-web/all.min.css";
 body{
-    font-family: "Roboto" sans-serif;
+    font-family: "Roboto", sans-serif;
 }
