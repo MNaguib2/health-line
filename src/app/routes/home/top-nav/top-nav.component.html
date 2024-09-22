@@ -1,48 +1,83 @@
 <div class="container w-full max-w-[1170px] mx-auto px-[15px] hidden 1200px:flex flex-col">
-    <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center">
         <span class="py-[.5rem]">
             <img src="./assets/image/logo.svg">
         </span>
-        <div class="flex justify-end">
-            <div class="flex items-center gap-6 border-e-[1px] border-[#07ccec] pe-[41px] me-[29px]">
+    <div class="flex justify-end">
+      <div class="flex items-center gap-6 border-e-[1px] border-[#07ccec] pe-[41px] me-[29px]">
                 <span>
                     <img src="./assets/image/phone.svg">
                 </span>
-                <span class="flex justify-center flex-col">
+        <span class="flex justify-center flex-col">
                     <span class="text-[#878D97] text-[12px] leading-[19px] font-['Roboto']">Call Any Time</span>
-                    <a href="#" class="text-[#27467C] font-bold text-[16px] font-['Roboto'] leading-4">+90 456 789 758</a>
+                    <a href="#"
+                       class="text-[#27467C] font-bold text-[16px] font-['Roboto'] leading-4">+90 456 789 758</a>
                 </span>
-            </div>
-            <div class="flex items-center gap-6 border-e-[1px] border-[#07ccec] pe-[41px] me-[29px]">
+      </div>
+      <div class="flex items-center gap-6 border-e-[1px] border-[#07ccec] pe-[41px] me-[29px]">
                 <span>
                     <img src="./assets/image/email.svg">
                 </span>
-                <span class="flex justify-center flex-col">
+        <span class="flex justify-center flex-col">
                     <span class="text-[#878D97] text-[12px] leading-[19px] font-['Roboto']">Email</span>
-                    <a href="#" class="text-[#27467C] font-bold text-[16px] font-['Roboto'] leading-4">{{'example@domain.com'}}</a>
+                    <a href="#"
+                       class="text-[#27467C] font-bold text-[16px] font-['Roboto'] leading-4">{{ 'example@domain.com' }}</a>
                 </span>
-            </div>
-            <div class="flex items-center gap-6">
+      </div>
+      <div class="flex items-center gap-6">
                 <span>
                     <img src="./assets/image/location.svg">
                 </span>
-                <span class="flex justify-center flex-col">
+        <span class="flex justify-center flex-col">
                     <span class="text-[#878D97] text-[12px] leading-[19px] font-['Roboto'] font-normal">Location</span>
-                    <a href="#" class="text-[#27467C] font-bold text-[16px] font-['Roboto'] leading-4">{{'36D St, Brooklyn, NY.'}}</a>
+                    <a href="#"
+                       class="text-[#27467C] font-bold text-[16px] font-['Roboto'] leading-4">{{ '36D St, Brooklyn, NY.' }}</a>
                 </span>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="mt-[12px] rounded-full bg-[#07ccec] text-[#fff] ps-[10px] py-[10px] flex justify-between align-middle">
-      <nav>
-      <ul>
-        <li class="mx-[18px] inline-block font-bold"><a>about</a><i class="fa-solid fa-chevron-down text-[12px]"></i></li>
-        <li class="mx-[18px] inline-block font-bold"><a>home</a><i class="fa-solid fa-chevron-down text-[12px]"></i></li>
-        <li class="mx-[18px] inline-block font-bold"><a>service</a><i class="fa-solid fa-chevron-down text-[12px]"></i></li>
-        <li class="mx-[18px] inline-block font-bold"><a>blog</a><i class="fa-solid fa-chevron-down text-[12px]"></i></li>
-        <li class="mx-[18px] inline-block font-bold"><a>pages</a><i class="fa-solid fa-chevron-down text-[12px]"></i></li>
-        <li class="mx-[18px] inline-block font-bold"><a>contact</a><i class="fa-solid fa-chevron-down text-[12px]"></i></li>
+  </div>
+  <div class="mt-[12px] rounded-full bg-[#07ccec] text-[#fff] ps-[23px] pe-[10px] py-[10px] flex justify-between items-center">
+    <nav>
+      <ul class="sub-menu-nav-bar">
+        <li class="mx-[18px] inline-block font-bold"><span class="item-sub-menu"><a>home</a>
+        </span>
+        </li>
+        <li class="mx-[18px] inline-block font-bold"><span class="item-sub-menu"><a>about</a>
+        </span>
+        </li>
+        <li class="mx-[18px] inline-block font-bold"><span class="item-sub-menu"><a>service</a>
+        </span>
+        </li>
+        <li class="mx-[18px] inline-block font-bold"><span class="item-sub-menu"><a>blog</a>
+        </span>
+        </li>
+        <li class="mx-[18px] inline-block font-bold"><span class="item-sub-menu"><a>pages</a>
+        </span>
+        </li>
+        <li class="mx-[18px] inline-block font-bold"><span class="item-sub-menu"><a>contact</a>
+        </span>
+        </li>
       </ul>
     </nav>
+    <div>
+      <span class="flex justify-between items-center gap-[29px]">
+          <span title="search">
+            <a href="#" class="rounded-full bg-white table-cell text-center align-middle w-[36px] h-[36px]" style="box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);">
+              <i class="fa fa-search text-[#07ccec]" aria-hidden="true"></i>
+            </a>
+          </span>
+          <span title="social media" class="flex gap-4 items-center me-[21px] text-[18px]">
+            <i class="fa-brands hover:text-sky-700 fa-instagram"></i>
+            <i class="fa-brands hover:text-sky-700 fa-twitter"></i>
+            <i class="fa-brands hover:text-sky-700 fa-pinterest-p"></i>
+            <i class="fa-brands hover:text-sky-700 fa-facebook-f"></i>
+          </span>
+          <span title="Appointments">
+            <a href="#" class="bg-[#27477d] rounded-full px-[35px] h-[52px] inline-block leading-[52px] font-bold">
+                APPOINTMENTS
+            </a>
+          </span>
+      </span>
     </div>
+  </div>
 </div>

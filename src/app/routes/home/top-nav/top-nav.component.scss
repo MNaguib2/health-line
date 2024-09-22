@@ -1,3 +1,25 @@
 nav a {
   text-transform: uppercase;
 }
+
+.item-sub-menu {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.item-sub-menu > a {
+  font-size: 15px;
+}
+
+.item-sub-menu:after {
+  content: "";
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  position: relative;
+  margin: 0px 0px 5px;
+}
