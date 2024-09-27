@@ -5,25 +5,22 @@
   background-position: center center;
 }
 .content-banner{
-  padding: 165px 0 176px;
   display: flex;
-  justify-content: center;
 }
 .title-header-pander{
   color: white;
-  font-size: 84px;
   font-weight: 700;
   line-height: normal;
   margin-bottom: 51px;
   font-family: "Quicksand", sans-serif;
 }
 .feature-content{
-  display: flex;
-  gap: 35px;
+  // display: flex;
+  // gap: 35px;
 }
 .hero-feature-box{
-  display: flex;
-  gap: 25px;
+  // display: flex;
+  // gap: 25px;
   > span{
     display: flex;
     flex-direction: column;
