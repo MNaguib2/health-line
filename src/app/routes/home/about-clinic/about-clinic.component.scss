@@ -7,7 +7,7 @@
   display: inline-block;
   margin-bottom: 10px;
 }
-.general-medical-sup-title{
+.general-medical-sup-title {
   color: var(--title-color);
   font-size: 48px;
   font-weight: 700;
@@ -15,17 +15,18 @@
   letter-spacing: -0.96px;
   margin-bottom: 12px;
 }
-.general-medical-paragraph{
-    color: #666;
-    line-height: 30px;
+.general-medical-paragraph {
+  color: #666;
+  line-height: 30px;
+  font-family: var(--body-font);
 }
-.general-medical-title-icon{
-    color: #000;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: normal;
-    margin-bottom: 0;
-    margin-left: 21px;
+.general-medical-title-icon {
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0;
+  margin-left: 21px;
 }
 .general-medical-exp-box {
   position: absolute;
@@ -66,3 +67,38 @@
   }
 }
 
+.about-medicals-services {
+  position: relative;
+  &:before {
+    content: "";
+    background-image: url(/assets/image/section-clinic/about-bg-2.png);
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+  }
+}
+.carousel-draggable {
+  display: flex;
+  width: max-content;
+  > div.services-carousel-card{
+    padding: 0px 12px;
+    > .card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #f5f5f5;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.07);
+    height: 384px;
+  }
+}
+}

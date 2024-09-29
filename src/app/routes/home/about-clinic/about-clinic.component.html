@@ -1,12 +1,16 @@
 <article>
   <section
-    class="flex pt-[200px] justify-center 1500px:scale-[1.3]"
-    title="general-medical"
+    class="flex pt-[200px] mb-[130px] justify-center"
+    title="general-medical-experience"
   >
     <div class="max-w-[1170px] flex flex-wrap">
       <div
-        class="w-full 900px:w-1/2 relative" id="picture-section-experience"
-        [@fadeInUpTrigger]="{ value: is_visible_picture_experience, params: { delay: 0.2 } }"
+        class="w-full 900px:w-1/2 relative"
+        id="picture-section-experience"
+        [@fadeInUpTrigger]="{
+          value: is_visible_picture_experience,
+          params: { delay: 0.2 }
+        }"
       >
         <img src="./assets/image/section-clinic/about1.png" class="w-full" />
 
@@ -17,8 +21,12 @@
       </div>
       <div class="w-2/2 900px:w-1/2">
         <div
-          class="flex flex-col ps-4" id="paragraph-section-experience"
-          [@fadeInUpTrigger]="{ value: is_visible_paragraph_experience, params: { delay: 0.4 } }"
+          class="flex flex-col ps-4"
+          id="paragraph-section-experience"
+          [@fadeInUpTrigger]="{
+            value: is_visible_paragraph_experience,
+            params: { delay: 0.4 }
+          }"
         >
           <div>
             <span class="general-medical-title"
@@ -69,6 +77,41 @@
           >
         </div>
       </div>
+    </div>
+  </section>
+  <section
+    class="about-medicals-services py-[130px]"
+    title="info-about-medicals"
+  >
+    <div class="container-style7">
+      <div
+        class="title-area-three text-center wow fadeInUp animated"
+        data-wow-delay="400ms"
+        style="visibility: visible; animation-delay: 400ms; animation-name: g"
+      >
+        <span class="general-medical-title">Our Services</span>
+        <h2 class="general-medical-sup-title">Medical &amp; General Care!</h2>
+        <p class="general-medical-paragraph">
+          Proactively revolutionize granular customer service after pandemic
+          internal or "organic" sources<br />
+          istinctively impact proactive human
+        </p>
+      </div>
+    </div>
+    <div title="medical-services-carousel" class="carousel-draggable">
+      @for (item of carousel; track $index) {
+      <div class="services-carousel-card">
+        <div class="card flex flex-wrap">
+          <div class="md:w-1/2 w-2/2 h-full">
+
+          </div>
+          <div class="md:w-1/2 w-2/2 h-full relative">
+            <img [src]="item.image_url"  class="h-full w-full"/>
+            <img [src]="item.icon_url" class="absolute bottom-[7%] left-[19%]"/>
+          </div>
+        </div>
+      </div>
+      }
     </div>
   </section>
 </article>

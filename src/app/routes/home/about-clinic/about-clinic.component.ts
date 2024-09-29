@@ -1,5 +1,5 @@
 import { animation, style, animate, trigger, transition, useAnimation, state } from '@angular/animations';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 const fadeInUp = animation([
 
@@ -39,9 +39,13 @@ const fadeInUp = animation([
     ]),
   ]
 })
-export class AboutClinicComponent {
+export class AboutClinicComponent implements OnInit {
     is_visible_paragraph_experience: string = 'out';
     is_visible_picture_experience: string = 'out';
+
+    ngOnInit(): void {
+      this.onWindowScroll();
+    }
     // Listener for scroll events
     @HostListener('window:scroll', ['$event'])
     onWindowScroll() {
@@ -60,5 +64,98 @@ export class AboutClinicComponent {
       } else {
         this.is_visible_picture_experience = 'out'; // Element is out of view
       }
+      this.controlWidthCarousel();
     }
+    controlWidthCarousel(){
+      const width = window.innerWidth;
+      const collection_element = document.querySelectorAll('.services-carousel-card');
+      if(width < 900){
+        collection_element.forEach((element: any) => {
+          element.style.width = `${width}px`;
+        });
+      }else if(width < 1500){
+        collection_element.forEach((element: any) => {
+          element.style.width = `${(width) / 2}px`;
+        });
+      }else if(width < 2000){
+        collection_element.forEach((element: any) => {
+          element.style.width = `${(width) / 3}px`;
+        });
+      }
+    }
+    carousel = [
+      {
+          "title": "Cardiovascular for Woman’s clear now",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-1.svg"
+      },
+      {
+          "title": "Hematology and Super Cool work",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-2.svg"
+      },
+      {
+          "title": "Family Physician and Doctor",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-3.svg"
+      },
+      {
+          "title": "Cardiovascular for Woman’s clear now",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-1.svg"
+      },
+      {
+          "title": "Hematology and Super Cool work",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-2.svg"
+      },
+      {
+          "title": "Family Physician and Doctor",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-3.svg"
+      },
+      {
+          "title": "Cardiovascular for Woman’s clear now",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-1.svg"
+      },
+      {
+          "title": "Hematology and Super Cool work",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-2.svg"
+      },
+      {
+          "title": "Family Physician and Doctor",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-3.svg"
+      },
+      {
+          "title": "Cardiovascular for Woman’s clear now",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-1.svg"
+      },
+      {
+          "title": "Hematology and Super Cool work",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-2.svg"
+      },
+      {
+          "title": "Family Physician and Doctor",
+          "category": "Physiology",
+          "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
+          "icon_url": "assets/image/section-clinic/service-carousel-3.svg"
+      }
+  ]
+
 }
