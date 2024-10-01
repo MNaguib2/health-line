@@ -1,0 +1,20 @@
+version: '3'
+services:
+  health-line-production:
+    build:
+      context: ${ROOT}
+      dockerfile: ${DOCKERFILE_PATH}
+    container_name: health-line
+    restart: unless-stopped
+    networks:
+      - health-line
+    ports:
+      - "8081:80"
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ${ROOT}:/app  # Mount the current directory
+
+networks:
+  health-line:
+    driver: bridge
