@@ -80,7 +80,7 @@
     </div>
   </section>
   <section
-    class="about-medicals-services py-[130px]"
+    class="about-medicals-services py-[130px] overflow-hidden"
     title="info-about-medicals"
   >
     <div class="container-style7">
@@ -98,7 +98,8 @@
         </p>
       </div>
     </div>
-    <div title="medical-services-carousel" class="carousel-draggable">
+    <div title="medical-services-carousel" id="medical-services-carousel"
+    (mousedown)="mouseDownInSlides($event)" (mouseup)="mouseUp($event)" (mousemove)="mouseMove($event)" class="carousel-draggable">
       @for (item of carousel; track $index) {
       <div class="services-carousel-card">
         <div class="card flex flex-wrap">
@@ -106,8 +107,8 @@
 
           </div>
           <div class="md:w-1/2 w-2/2 h-full relative">
-            <img [src]="item.image_url"  class="h-full w-full"/>
-            <img [src]="item.icon_url" class="absolute bottom-[7%] left-[19%]"/>
+            <img [src]="item.image_url"  class="h-full w-full pointer-events-none"/>
+            <img [src]="item.icon_url" class="absolute bottom-[7%] left-[19%] pointer-events-none"/>
           </div>
         </div>
       </div>
