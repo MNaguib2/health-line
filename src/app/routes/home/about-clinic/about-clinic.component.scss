@@ -88,17 +88,35 @@
   display: flex;
   width: max-content;
   overflow: hidden;
-  > div.services-carousel-card{
+  > div.services-carousel-card {
     padding: 0px 12px;
     > .card {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    background: #f5f5f5;
-    -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.07);
-    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.07);
-    height: 384px;
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      background: #f5f5f5;
+      -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.07);
+      box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.07);
+      .title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 42px;
+        letter-spacing: -0.6px;
+        text-transform: capitalize;
+        font-family: var(--title-font);
+        color: var(--title-color);
+      }
+      .category {
+        color: #07ccec;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: normal;
+        display: inline-block;
+      }
+    }
   }
 }
+.card-brands{
+  padding: 0px 24px;
 }

@@ -84,6 +84,7 @@ export class AboutClinicComponent implements OnInit {
         this.is_visible_carousel = 'out'; // Element is out of view
       }
       this.controlWidthCarousel();
+      this.controlWidthCarouselBrands();
     }
     controlWidthCarousel(){
       const width = window.innerWidth;
@@ -101,6 +102,34 @@ export class AboutClinicComponent implements OnInit {
       }else if(width < 2000){
         collection_element.forEach((element: any) => {
           element.style.width = `${(width) / 3}px`;
+        });
+      }
+    }
+    controlWidthCarouselBrands(){
+      const width = window.innerWidth;
+      const collection_element = document.querySelectorAll('.card-brands');
+      const element_slides = document.getElementById('medical-brands-carousel');
+      element_slides ? element_slides.style.transform = `translateX(0px)` : null;
+
+      if(width < 575){
+        collection_element.forEach((element: any) => {
+          element.style.width = `${width}px`;
+        });
+      }else if(width < 768){
+        collection_element.forEach((element: any) => {
+          element.style.width = `${(width) / 2}px`;
+        });
+      }else if(width < 900){
+        collection_element.forEach((element: any) => {
+          element.style.width = `${(width) / 3}px`;
+        });
+      }else if(width < 1200){
+        collection_element.forEach((element: any) => {
+          element.style.width = `${(width) / 4}px`;
+        });
+      }else if(width > 1200){
+        collection_element.forEach((element: any) => {
+          element.style.width = `${(width) / 5}px`;
         });
       }
     }
@@ -135,42 +164,59 @@ export class AboutClinicComponent implements OnInit {
         element_slides.style.transform = `translateX(${this.point_translate + point_translate}px)`
       }
     }
-    carousel = [
+    carousel_brands = [
+      {index: 0, image_url:'assets/image/section-clinic/brands-carousel-1.png'},
+      {index: 1, image_url:'assets/image/section-clinic/brands-carousel-2.png'},
+      {index: 2, image_url:'assets/image/section-clinic/brands-carousel-3.png'},
+      {index: 3, image_url:'assets/image/section-clinic/brands-carousel-4.png'},
+      {index: 4, image_url:'assets/image/section-clinic/brands-carousel-5.png'},
+      {index: 5, image_url:'assets/image/section-clinic/brands-carousel-1.png'},
+      {index: 6, image_url:'assets/image/section-clinic/brands-carousel-2.png'},
+      {index: 7, image_url:'assets/image/section-clinic/brands-carousel-3.png'},
+      {index: 8, image_url:'assets/image/section-clinic/brands-carousel-4.png'},
+      {index: 9, image_url:'assets/image/section-clinic/brands-carousel-5.png'},
+      {index: 10, image_url:'assets/image/section-clinic/brands-carousel-1.png'},
+      {index: 11, image_url:'assets/image/section-clinic/brands-carousel-2.png'},
+      {index: 12, image_url:'assets/image/section-clinic/brands-carousel-3.png'},
+      {index: 13, image_url:'assets/image/section-clinic/brands-carousel-4.png'},
+      {index: 14, image_url:'assets/image/section-clinic/brands-carousel-5.png'},
+    ]
+    carousel_service = [
       {
           "title": "Cardiovascular for Woman’s clear now",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-1.svg"
+          "icon_url": "assets/image/section-clinic/service-carousel-1.svg", position: {none: {top: '-122px', left: '0px'}}
       },
       {
           "title": "Hematology and Super Cool work",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-2.svg"
+          "icon_url": "assets/image/section-clinic/service-carousel-2.svg", position: {none: {top: '-122px', left: '0px'}}
       },
       {
           "title": "Family Physician and Doctor",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-3.svg"
+          "icon_url": "assets/image/section-clinic/service-carousel-3.svg", position: {none: {top: '-122px', left: '0px'}}
       },
       {
           "title": "Cardiovascular for Woman’s clear now",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-1.svg"
+          "icon_url": "assets/image/section-clinic/service-carousel-1.svg", position: {none: {top: '-122px', left: '0px'}}
       },
       {
           "title": "Hematology and Super Cool work",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-2.svg"
+          "icon_url": "assets/image/section-clinic/service-carousel-2.svg", position: {none: {top: '-122px', left: '0px'}}
       },
       {
           "title": "Family Physician and Doctor",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-3.svg"
+          "icon_url": "assets/image/section-clinic/service-carousel-3.svg", position: {none: {top: '-122px', left: '0px'}}
       },
       {
           "title": "Cardiovascular for Woman’s clear now",

@@ -106,18 +106,39 @@
       params: { delay: 0.3 }
     }"
     (mousedown)="mouseDownInSlides($event)" (mouseup)="mouseUp($event)" (mousemove)="mouseMove($event)" class="carousel-draggable">
-      @for (item of carousel; track $index) {
-      <div class="services-carousel-card">
+      @for (item of carousel_service; track $index) {
+      <div class="services-carousel-card md:h-[384px] h-max">
         <div class="card flex flex-wrap">
-          <div class="md:w-1/2 w-2/2 h-full">
-
+          <div class="md:w-1/2 w-2/2 h-full flex items-center justify-center px-[20px] py-[30px] md:py-0">
+            <div class="flex flex-col gap-[30px]">
+              <span>
+                <h1 class="title">{{ item['title'] }}</h1>
+              </span>
+              <span>
+                <h3 class="category">{{ item['category'] }}</h3>
+              </span>
+              <span>
+                <a href="#" class="btn-style1 v1">learn more</a>
+              </span>
+            </div>
           </div>
-          <div class="md:w-1/2 w-2/2 h-full relative">
-            <img [src]="item.image_url"  class="h-full w-full pointer-events-none"/>
+          <div class="md:w-1/2 w-full md:h-full relative h-[178px] md:overflow-auto overflow-hidden">
+            <img [src]="item.image_url"  class="md:h-full h-max w-full pointer-events-none md:relative absolute m-auto"
+            [style.left]="item.position && item.position.none ? item.position.none.left : '0px'"
+            [style.top]="item.position && item.position.none ? item.position.none.top : '0px'"/>
             <img [src]="item.icon_url" class="absolute bottom-[7%] left-[19%] pointer-events-none"/>
           </div>
         </div>
       </div>
+      }
+    </div>
+  </section>
+  <section id="brands-caruosel" class="relative pt-[85px] pb-[130px] overflow-hidden">
+    <div class="flex w-max" id="medical-brands-carousel">
+      @for (item of carousel_brands; track item.index) {
+        <div class="card-brands">
+          <img [src]="item.image_url" alt="">
+        </div>
       }
     </div>
   </section>
