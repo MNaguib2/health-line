@@ -84,7 +84,10 @@
     title="info-about-medicals"
   >
     <div class="container-style7">
-      <div
+      <div [@fadeInUpTrigger]="{
+        value: is_visible_title_slides,
+        params: { delay: 0.4 }
+      }" id="title-carousel"
         class="title-area-three text-center wow fadeInUp animated"
         data-wow-delay="400ms"
         style="visibility: visible; animation-delay: 400ms; animation-name: g"
@@ -98,7 +101,10 @@
         </p>
       </div>
     </div>
-    <div title="medical-services-carousel" id="medical-services-carousel"
+    <div title="medical-services-carousel" id="medical-services-carousel" [@fadeInUpTrigger]="{
+      value: is_visible_carousel,
+      params: { delay: 0.3 }
+    }"
     (mousedown)="mouseDownInSlides($event)" (mouseup)="mouseUp($event)" (mousemove)="mouseMove($event)" class="carousel-draggable">
       @for (item of carousel; track $index) {
       <div class="services-carousel-card">

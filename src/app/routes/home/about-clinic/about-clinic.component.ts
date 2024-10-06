@@ -42,6 +42,8 @@ const fadeInUp = animation([
 export class AboutClinicComponent implements OnInit {
     is_visible_paragraph_experience: string = 'out';
     is_visible_picture_experience: string = 'out';
+    is_visible_title_slides: string = 'out';
+    is_visible_carousel: string = 'out';
 
     ngOnInit(): void {
       this.onWindowScroll();
@@ -51,8 +53,15 @@ export class AboutClinicComponent implements OnInit {
     onWindowScroll() {
       const element_paragraph = document.querySelector('#paragraph-section-experience');
       const element_picture = document.querySelector('#picture-section-experience');
+
+      const element_title_slides = document.querySelector('#title-carousel');
+      const element_carousel = document.querySelector('#medical-services-carousel');
+
       const position_paragraph = element_paragraph?.getBoundingClientRect();
       const position_picture = element_picture?.getBoundingClientRect();
+
+      const position_title_slides = element_title_slides?.getBoundingClientRect();
+      const position_carousel = element_carousel?.getBoundingClientRect();
 
       if (position_paragraph && position_paragraph.top <= window.innerHeight && position_paragraph.bottom >= 0) {
         this.is_visible_paragraph_experience = 'in'; // Element is in view
@@ -63,6 +72,16 @@ export class AboutClinicComponent implements OnInit {
         this.is_visible_picture_experience = 'in'; // Element is in view
       } else {
         this.is_visible_picture_experience = 'out'; // Element is out of view
+      }
+      if (position_title_slides && position_title_slides.top <= window.innerHeight && position_title_slides.bottom >= 0) {
+        this.is_visible_title_slides = 'in'; // Element is in view
+      } else {
+        this.is_visible_title_slides = 'out'; // Element is out of view
+      }
+      if (position_carousel && position_carousel.top <= window.innerHeight && position_carousel.bottom >= 0) {
+        this.is_visible_carousel = 'in'; // Element is in view
+      } else {
+        this.is_visible_carousel = 'out'; // Element is out of view
       }
       this.controlWidthCarousel();
     }
@@ -104,7 +123,6 @@ export class AboutClinicComponent implements OnInit {
       this.point_translate = new DOMMatrixReadOnly(style.transform).m41;
       const width_element_child = (element_slides.firstElementChild?.getBoundingClientRect().width) || 0;
       const count_children_view = Math.ceil(width_screen / width_element_child);
-      console.log(count_children_view);
       let define_number_slides = this.point_translate / width_element_child;
       define_number_slides = Math.abs(define_number_slides) >= (count_children - count_children_view) ? (count_children_view - count_children) : define_number_slides
       this.point_translate = define_number_slides >= 1 ? 0 : width_element_child * Math.round(define_number_slides);
