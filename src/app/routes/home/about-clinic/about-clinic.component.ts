@@ -198,7 +198,7 @@ export class AboutClinicComponent implements OnInit {
           "title": "Family Physician and Doctor",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-3.svg", position: {none: {top: '-122px', left: '0px'}}
+          "icon_url": "assets/image/section-clinic/service-carousel-3.svg", position: {none: {top: '0px', left: '0px'}}
       },
       {
           "title": "Cardiovascular for Woman’s clear now",
