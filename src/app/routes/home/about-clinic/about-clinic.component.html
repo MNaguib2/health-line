@@ -123,9 +123,7 @@
             </div>
           </div>
           <div class="md:w-1/2 w-full md:h-full relative h-[178px] md:overflow-auto overflow-hidden">
-            <img [src]="item.image_url"  class="md:h-full h-max w-full pointer-events-none md:relative absolute m-auto"
-            [style.left]="item.position && item.position.none ? item.position.none.left : '0px'"
-            [style.top]="item.position && item.position.none ? item.position.none.top : '0px'"/>
+            <img [src]="item.image_url" id="{{item.id}}"  class="md:h-full h-max w-full pointer-events-none md:relative absolute m-auto md:max-h-[384px]"/>
             <img [src]="item.icon_url" class="absolute bottom-[7%] left-[19%] pointer-events-none"/>
           </div>
         </div>

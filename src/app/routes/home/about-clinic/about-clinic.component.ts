@@ -91,8 +91,36 @@ export class AboutClinicComponent implements OnInit {
       const collection_element = document.querySelectorAll('.services-carousel-card');
       const element_slides = document.getElementById('medical-services-carousel');
       element_slides ? element_slides.style.transform = `translateX(0px)` : null;
-      if(width < 900){
+      if(width < 768){
         collection_element.forEach((element: any) => {
+          const image_resize = element.querySelector(':scope > div > div > img:first-child') as HTMLImageElement;
+          const id = +image_resize.id;
+          if(id) {
+            const carousel_element = this.carousel_service.find(ele => +ele.id === id);
+            if(carousel_element && carousel_element.position && carousel_element.position.none){
+              image_resize.style.top = `${carousel_element.position.none.top}`;
+              image_resize.style.left = `${carousel_element.position.none.left}`;
+            }else{
+              image_resize.style.top = `0px`;
+              image_resize.style.left = `0px`;
+            }
+          }
+          element.style.width = `${width}px`;
+        });
+      }else if(width < 900){
+        collection_element.forEach((element: any) => {
+          const image_resize = element.querySelector(':scope > div > div > img:first-child') as HTMLImageElement;
+          const id = +image_resize.id;
+          if(id) {
+            const carousel_element = this.carousel_service.find(ele => +ele.id === id);
+            if(carousel_element && carousel_element.position && carousel_element.position.medium){
+              image_resize.style.top = `${carousel_element.position.medium.top}`;
+              image_resize.style.left = `${carousel_element.position.medium.left}`;
+            }else{
+              image_resize.style.top = `0px`;
+              image_resize.style.left = `0px`;
+            }
+          }
           element.style.width = `${width}px`;
         });
       }else if(width < 1500){
@@ -183,72 +211,83 @@ export class AboutClinicComponent implements OnInit {
     ]
     carousel_service = [
       {
+          "id":"1",
           "title": "Cardiovascular for Woman’s clear now",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-1.svg", position: {none: {top: '-122px', left: '0px'}}
+          "icon_url": "assets/image/section-clinic/service-carousel-1.svg", position: {none: {top: '-122px', left: '0px'}, medium: {top: '0px', left: '0px'}}
       },
       {
+        "id":"2",
           "title": "Hematology and Super Cool work",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-2.svg", position: {none: {top: '-122px', left: '0px'}}
+          "icon_url": "assets/image/section-clinic/service-carousel-2.svg", position: {none: {top: '-122px', left: '0px'}, medium:{top: '0px', left: '0px'}}
       },
       {
+        "id":"3",
           "title": "Family Physician and Doctor",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-3.svg", position: {none: {top: '0px', left: '0px'}}
       },
       {
+        "id":"4",
           "title": "Cardiovascular for Woman’s clear now",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-1.svg", position: {none: {top: '-122px', left: '0px'}}
       },
       {
+        "id":"5",
           "title": "Hematology and Super Cool work",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-2.svg", position: {none: {top: '-122px', left: '0px'}}
       },
       {
+        "id":"6",
           "title": "Family Physician and Doctor",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-3.svg", position: {none: {top: '-122px', left: '0px'}}
       },
-      {
+      {"id":"7",
           "title": "Cardiovascular for Woman’s clear now",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-1.svg"
       },
       {
+          "id":"8",
           "title": "Hematology and Super Cool work",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-2.svg"
       },
       {
+          "id":"9",
           "title": "Family Physician and Doctor",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-3.svg"
       },
       {
+          "id":"10",
           "title": "Cardiovascular for Woman’s clear now",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-1.svg"
       },
       {
+        "id":"11",
           "title": "Hematology and Super Cool work",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
           "icon_url": "assets/image/section-clinic/service-carousel-2.svg"
       },
       {
+        "id":"12",
           "title": "Family Physician and Doctor",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-3.jpg",
