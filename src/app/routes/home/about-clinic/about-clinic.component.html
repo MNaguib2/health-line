@@ -132,10 +132,10 @@
     </div>
   </section>
   <section id="brands-caruosel" class="relative pt-[85px] pb-[130px] overflow-hidden">
-    <div class="flex w-max" id="medical-brands-carousel">
+    <div class="flex w-max brands-carousel-card" id="medical-brands-carousel" (mousedown)="mouseDownInSlides($event)" (mouseup)="mouseUp($event, 'brands')" (mousemove)="mouseMove($event, 'brands')">
       @for (item of carousel_brands; track item.index) {
         <div class="card-brands">
-          <img [src]="item.image_url" alt="">
+          <img [src]="item.image_url" class="pointer-events-none" alt="">
         </div>
       }
     </div>

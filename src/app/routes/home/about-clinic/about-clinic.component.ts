@@ -47,6 +47,7 @@ export class AboutClinicComponent implements OnInit {
 
     ngOnInit(): void {
       this.onWindowScroll();
+      this.moveAutomaticBrands();
     }
     // Listener for scroll events
     @HostListener('window:scroll', ['$event'])
@@ -125,15 +126,40 @@ export class AboutClinicComponent implements OnInit {
         });
       }else if(width < 1500){
         collection_element.forEach((element: any) => {
+          const image_resize = element.querySelector(':scope > div > div > img:first-child') as HTMLImageElement;
+          const id = +image_resize.id;
+          if(id) {
+            const carousel_element = this.carousel_service.find(ele => +ele.id === id);
+            if(carousel_element && carousel_element.position && carousel_element.position.large){
+              image_resize.style.top = `${carousel_element.position.large.top}`;
+              image_resize.style.left = `${carousel_element.position.large.left}`;
+            }else{
+              image_resize.style.top = `0px`;
+              image_resize.style.left = `0px`;
+            }
+          }
           element.style.width = `${(width) / 2}px`;
         });
-      }else if(width < 2000){
+      }else {
         collection_element.forEach((element: any) => {
+          const image_resize = element.querySelector(':scope > div > div > img:first-child') as HTMLImageElement;
+          const id = +image_resize.id;
+          if(id) {
+            const carousel_element = this.carousel_service.find(ele => +ele.id === id);
+            if(carousel_element && carousel_element.position && carousel_element.position.x_large){
+              image_resize.style.top = `${carousel_element.position.x_large.top}`;
+              image_resize.style.left = `${carousel_element.position.x_large.left}`;
+            }else{
+              image_resize.style.top = `0px`;
+              image_resize.style.left = `0px`;
+            }
+          }
           element.style.width = `${(width) / 3}px`;
         });
       }
     }
     controlWidthCarouselBrands(){
+      this.point_translate_brands = 0;
       const width = window.innerWidth;
       const collection_element = document.querySelectorAll('.card-brands');
       const element_slides = document.getElementById('medical-brands-carousel');
@@ -170,27 +196,53 @@ export class AboutClinicComponent implements OnInit {
       this.mouse_point = event.clientX;
       this.click_down = true;
     }
-    mouseUp(event: MouseEvent){
+    mouseUp(event: MouseEvent, type?:string){
       this.click_down = false;
       const element_slides = event.currentTarget as HTMLDivElement;
-      const count_children = element_slides.childElementCount + 1;
-      const width_screen = window.screen.width;
+      const count_children = element_slides.childElementCount;
+      const width_screen = window.innerWidth;
       element_slides.style.transition = `all .5s ease-in-out`;
       const style = window.getComputedStyle(element_slides)
-      this.point_translate = new DOMMatrixReadOnly(style.transform).m41;
+      let point_translate = new DOMMatrixReadOnly(style.transform).m41;
       const width_element_child = (element_slides.firstElementChild?.getBoundingClientRect().width) || 0;
       const count_children_view = Math.ceil(width_screen / width_element_child);
-      let define_number_slides = this.point_translate / width_element_child;
+      let define_number_slides = point_translate / width_element_child;
       define_number_slides = Math.abs(define_number_slides) >= (count_children - count_children_view) ? (count_children_view - count_children) : define_number_slides
-      this.point_translate = define_number_slides >= 1 ? 0 : width_element_child * Math.round(define_number_slides);
-      element_slides.style.transform = `translateX(${this.point_translate - 6}px)`
+      point_translate = define_number_slides >= 0 ? 0 : width_element_child * Math.round(define_number_slides);
+      element_slides.style.transform = `translateX(${point_translate - 6}px)`;
+      if(type === 'brands'){
+        this.point_translate_brands = Math.abs(point_translate);
+      }else{
+        this.point_translate = point_translate;
+      }
     }
-    mouseMove(event: MouseEvent){
+    mouseMove(event: MouseEvent, type?: string){
       if(this.click_down){
+        let point_translate_old = this.point_translate;
+        if(type === 'brands'){
+          point_translate_old = this.point_translate_brands
+        }
         const point_translate = (event.clientX - this.mouse_point);
         const element_slides = event.currentTarget as HTMLDivElement;
-        element_slides.style.transform = `translateX(${this.point_translate + point_translate}px)`
+        element_slides.style.transform = `translateX(${-point_translate_old + point_translate}px)`
       }
+    }
+    time_out_interval: any;
+    point_translate_brands: number = 0;
+    moveAutomaticBrands(){
+      this.time_out_interval = setInterval(() => {
+        const element_slides = document.getElementById('medical-brands-carousel') as HTMLDivElement;
+        const count_children = element_slides.childElementCount;
+        const width_screen = window.innerWidth;
+        const width_element_child = (element_slides.firstElementChild?.getBoundingClientRect().width) || 0;
+        const count_children_view = Math.ceil(width_screen / width_element_child);
+        const total_width = (count_children - count_children_view) * width_element_child;
+        this.point_translate_brands += width_element_child;
+        if(total_width < this.point_translate_brands){
+          this.point_translate_brands = 0;
+        }
+          element_slides.style.transform = `translateX(${-this.point_translate_brands - 6}px)`;
+      }, 10000)
     }
     carousel_brands = [
       {index: 0, image_url:'assets/image/section-clinic/brands-carousel-1.png'},
@@ -215,14 +267,14 @@ export class AboutClinicComponent implements OnInit {
           "title": "Cardiovascular for Woman’s clear now",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-1.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-1.svg", position: {none: {top: '-122px', left: '0px'}, medium: {top: '0px', left: '0px'}}
+          "icon_url": "assets/image/section-clinic/service-carousel-1.svg", position: {none: {top: '-122px', left: '0px'}, medium: {top: '0px', left: '0px'}, large:{top: '0px', left: '0px'}}
       },
       {
         "id":"2",
           "title": "Hematology and Super Cool work",
           "category": "Physiology",
           "image_url": "assets/image/section-clinic/service-carousel-2.jpg",
-          "icon_url": "assets/image/section-clinic/service-carousel-2.svg", position: {none: {top: '-122px', left: '0px'}, medium:{top: '0px', left: '0px'}}
+          "icon_url": "assets/image/section-clinic/service-carousel-2.svg", position: {none: {top: '-122px', left: '0px'}, medium:{top: '0px', left: '0px'}, x_large:{top: '0px', left: '0px'}}
       },
       {
         "id":"3",

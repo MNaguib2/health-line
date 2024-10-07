@@ -117,6 +117,12 @@
     }
   }
 }
-.card-brands{
-  padding: 0px 24px;
+.brands-carousel-card{
+  transition: all .5s;
+  >.card-brands{
+    padding: 0px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
