@@ -1,25 +1,43 @@
-<section>
+<section class="overflow-hidden">
   <div
     class="documentation-body flex justify-center flex-col items-center py-20"
   >
+  <div class="max-w-[1170px] px-4">
     <div class="flex flex-col mb-[50px] items-center justify-center">
       <span class="sub-title1">Our Services</span>
-      <h2 class="title1" style="color: white">Medical &amp; General Care!</h2>
+      <h2 class="title1 text-[34px] md:text-[48px]" style="color: white">Medical &amp; General Care!</h2>
     </div>
 
 
 
 
-    <div class="card">
+    <div class="w-[400px] sm:w-[440px] md:w-[70%] 900px:w-[80%] lg:w-[90%] 1200px:w-[100%] m-auto" id="documents-slides">
       <p-carousel
           [value]="documents"
           [numVisible]="3"
+          [showNavigators]="false"
           [numScroll]="3"
-          [circular]="false"
+          [style]="{width: '100%'}"
+          [circular]="true"
           [responsiveOptions]="responsiveOptions">
               <ng-template let-document pTemplate="item">
-                  <div class="border-1 surface-border border-round m-2 p-3">
-                    <h1>{{ document.description }}</h1>
+                  <div class="border-1 surface-border border-round m-2 p-3 card-carousel-documents"
+                  [@fadeInUpTrigger]="{ value: scroll_document_slides, params: { delay: .2 * document.order } }">
+                    <div class="flex flex-col w-full">
+                      <div>
+                        <img [src]="document.image" alt="" class="w-full">
+                      </div>
+                      <div class="bg-white flex flex-col px-9 pt-12 pb-8 rounded-b-3xl" style="font-family: var(--title-font);">
+                        <h6 class="text-[22px] font-bold not-italic mb-4">{{ document.title }}</h6>
+                        <p class="text-[#888C92] text[14px] font-normal leading-6 mb-4">
+                          {{ document.description }}
+                        </p>
+                        <a href="#" class="specialist-btn">More more</a>
+                      </div>
+                    </div>
+                    <span class="icon-documents">
+                      <img [src]="document.icon">
+                    </span>
                   </div>
               </ng-template>
       </p-carousel>
@@ -29,6 +47,6 @@
 
 
 
-
   </div>
+</div>
 </section>

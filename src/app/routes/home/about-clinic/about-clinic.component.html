@@ -131,10 +131,11 @@
       }
     </div>
   </section>
+
   <section id="brands-caruosel" class="relative pt-[85px] pb-[130px] overflow-hidden">
     <div class="flex w-max brands-carousel-card" id="medical-brands-carousel" (mousedown)="mouseDownInSlides($event)" (mouseup)="mouseUp($event, 'brands')" (mousemove)="mouseMove($event, 'brands')">
-      @for (item of carousel_brands; track item.index) {
-        <div class="card-brands">
+      @for (item of carousel_brands; track item.index;let idx = $index) {
+        <div class="card-brands" [@fadeInUpTrigger]="{ value: is_visible_brands_slides, params: { delay: .2 * idx } }">
           <img [src]="item.image_url" class="pointer-events-none" alt="">
         </div>
       }

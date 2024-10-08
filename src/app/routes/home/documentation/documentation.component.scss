@@ -1,5 +1,69 @@
-.documentation-body{
+.documentation-body {
   background-image: url('/assets/image/documentation/back-ground.jpg');
   min-height: 441px;
   width: 100%;
+}
+
+::ng-deep {
+  .p-carousel-indicator {
+    background-color: white;
+    border-radius: 3px;
+  }
+
+  .p-highlight {
+    background-color: var(--primary-600);
+  }
+}
+
+.specialist-btn {
+  color: var(--theme-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  display: inline-block;
+  transition: all .5s;
+}
+
+a.specialist-btn:hover {
+  color: var(--title-color);
+}
+
+.card-carousel-documents {
+  position: relative;
+  transition: all .5s;
+  &:hover{
+    .icon-documents{
+    background-color: var(--theme-color);
+    }
+  }
+  >.icon-documents {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: #124A94;
+    border-radius: 50%;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    right: 50px;
+    display: flex;
+    transition: all .5s;
+    justify-content: center;
+    align-items: center;
+    &:after {
+      content: "";
+      width: 100px;
+      height: 100px;
+      background-color: #124A94;
+      border-radius: 50%;
+      top: 0px;
+      bottom: 0px;
+      margin: auto;
+      right: -10px;
+      opacity: 0.1;
+      position: absolute;
+    }
+  }
 }
