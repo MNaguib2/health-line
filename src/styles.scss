@@ -40,10 +40,21 @@ body{
   display: inline-block;
   margin-bottom: 10px;
 }
+.sub-title2 {
+  font-family: var(--subtitle-font);
+  color: var(--theme-color);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: normal;
+  display: inline-block;
+  margin-bottom: 10px;
+}
 .title1{
     color: var(--title-color);
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.96px;
     margin-bottom: 12px;
+    font-family: var(--title-font);
+    text-transform: capitalize;
 }
