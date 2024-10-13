@@ -47,4 +47,33 @@
     -webkit-box-shadow: unset;
     box-shadow: unset;
     text-indent: -9999px;
+    &:hover{
+      border-color: #07CCEC;
+      background-color: #07CCEC;
+    }
+}
+.back-arrow{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  height: auto;
+  margin: auto;
+  transform: rotate(180deg);
+  left: 10px;
+  width: 32px;
+}
+.forward-arrow{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  height: auto;
+  margin: auto;
+  right: 10px;
+  width: 32px;
+}
+.feed-back-carousal{
+  transition: all 500ms;
+  display: flex;
+  width: max-content;
+  overflow: hidden;
 }
