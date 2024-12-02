@@ -31,5 +31,6 @@ jobs:
             # git reset --hard
             git pull
 
+            node -v
 
             npm run build
