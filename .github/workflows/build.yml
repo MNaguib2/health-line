@@ -28,7 +28,7 @@ jobs:
             cd /home/mena/Desktop/health-line/
 
             # Pull the latest code from the repo
-            git reset --hard
+            # git reset --hard
             git pull origin main
 
 
