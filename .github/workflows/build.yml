@@ -24,13 +24,20 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: 40473  # Port given by Ngrok
           script: |
+            # Ensure Node.js is in PATH
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # Load nvm
+            [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # Load nvm bash_completion (optional)
+
             # Go to your app directory
             cd /home/mena/Desktop/health-line/
 
             # Pull the latest code from the repo
-            # git reset --hard
             git pull
 
+            # Verify Node.js version
             node -v
 
+            # Build the app
+            # npm install
             npm run build
