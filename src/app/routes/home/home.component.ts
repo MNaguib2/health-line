@@ -5,12 +5,12 @@ import { AboutClinicComponent } from "./about-clinic/about-clinic.component";
 import { DocumentationComponent } from "./documentation/documentation.component";
 import { FeedBackComponent } from "./feed-back/feed-back.component";
 import { WhyChooseComponent } from "./why-choose/why-choose.component";
-import { TeemClinicComponent } from "./teem-clinic/teem-clinic.component";
+import { TeamClinicComponent } from "./team-clinic/team-clinic.component";
 
 @Component({
   selector: 'health-line-home',
   standalone: true,
-  imports: [TopNavComponent, PannerSlideComponent, AboutClinicComponent, DocumentationComponent, FeedBackComponent, WhyChooseComponent, TeemClinicComponent],
+  imports: [TopNavComponent, PannerSlideComponent, AboutClinicComponent, DocumentationComponent, FeedBackComponent, WhyChooseComponent, TeamClinicComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
