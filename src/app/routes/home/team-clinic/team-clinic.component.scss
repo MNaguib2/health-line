@@ -39,3 +39,23 @@
   border-radius: 0 0 30px 30px;
   z-index: -1;
 }
+.info-box{
+  padding: 27px 13px 22px 13px;
+  text-align: center;
+}
+.team-card-three .info-box .name a {
+  color: var(--title-color);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0;
+}
+
+.team-card-three .info-box .designation {
+  font-size: 12px;
+  display: inline-block;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--body-color);
+  width: 100%;
+}
